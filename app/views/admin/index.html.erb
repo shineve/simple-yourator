@@ -1,0 +1,47 @@
+<h1 class="mt-4">
+  管理後台
+</h1>
+<div class="mt-4 flex justify-end">
+  <%= link_to "編輯公司資訊", admin_company_path, class: "btn-primary" %>
+  <%= link_to "新增職缺", new_admin_job_path, class: "btn-primary ml-2" %>
+</div>
+<div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+  <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
+    <div class="overflow-hidden shadow-md sm:rounded-lg">
+      <table class="min-w-full">
+        <thead class="bg-gray-50 dark:bg-gray-700">
+          <tr>
+            <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+              Title
+            </th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @jobs.each do |job| %>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700"
+              >
+              <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <a href="<%= admin_job_path(id: job.id) %>">
+                  <%= job.title %>
+                </a>
+              </td>
+              <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              </td>
+              <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <span>
+                  <%= link_to "Delete", admin_job_path(id: job.id), data: { 
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                      }
+                    %>
+                </span>
+              </td>
+            </tr>
+          <% end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

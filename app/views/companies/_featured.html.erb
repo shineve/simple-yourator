@@ -1,0 +1,13 @@
+<section class="w-full">
+  <div class="container p-6 rounded-lg border border-gray-200">
+    <div class="flex flex-row justify-between">
+      <h1>推薦公司</h1>
+      <a class="hyperlink" href="/companies">更多公司</a>
+    </div>
+    <div class="grid grid-cols-5 grid-flow-col gap-4 mt-4">
+      <% @featured_companies.each do |company| %>
+        <%= render "companies/card", company: company %>
+      <% end %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,40 @@
+<%= form_with model: [:admin, @company] do |form| %>
+  <% if current_page?(new_admin_company_path) %>
+    <div>
+      <%= form.label :code %><br>
+      <%= form.text_field :code %>
+      <% @company.errors.full_messages_for(:code).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="field mt-4">
+    <%= form.label :name %><br>
+    <%= form.text_field :name %><br>
+    <% @company.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div class="field mt-4">
+    <%= form.label :description %>
+    <%= form.rich_text_area :description %>
+      <% @company.errors.full_messages_for(:description).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+  </div>
+  <div class="field mt-4">
+    <%= form.label :mission %>
+    <%= form.rich_text_area :mission %>
+      <% @company.errors.full_messages_for(:mission).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+  </div>
+  <div class="field mt-4">
+    <%= form.label :benefits %>
+    <%= form.rich_text_area :benefits %>
+      <% @company.errors.full_messages_for(:benefits).each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+  </div>
+  <%= form.submit class: "mt-4 btn-primary cursor-pointer" %>
+<% end %>

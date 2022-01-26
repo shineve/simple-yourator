@@ -1,0 +1,19 @@
+<h1><%= @company.name %></h1>
+<h2 class="mt-4 mb-2 text-sky-500">公司介紹</h2>
+<section class="prose">
+  <%= @company.description %>
+</section>
+<h2 class="mt-4 mb-2 text-sky-500">公司理念</h2>
+<section class="prose">
+  <%= @company.mission %>
+</section>
+<h2 class="mt-4 mb-2 text-sky-500">薪資福利</h2>
+<section class="prose">
+  <%= @company.benefits %>
+</section> 
+<h2 class="mt-4 mb-2">目前職缺</h2>
+<div class="grid grid-cols-5 gap-4 mt-4">
+  <% @company.jobs.each do |job| %>
+    <%= render "jobs/card", job:job %>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<h1><%= @job.title %></h1>
+<h2 class="mt-4 mb-2 text-sky-500">工作內容</h2>
+<section class="prose">
+  <%= @job.description %>
+</section>
+<h2 class="mt-4 mb-2 text-sky-500">條件要求</h2>
+<section class="prose">
+  <%= @job.requirements %>
+</section>
+<h2 class="mt-4 mb-2 text-sky-500">公司福利</h2>
+<section class="prose">
+  <%= @job.employee_benefits %>
+</section>
+<h2 class="mt-4 mb-2 text-sky-500">薪資範圍</h2>
+<span>
+  <%= number_to_currency(@job.min_salary, locale: 'zh-TW') %> ~ <%= number_to_currency(@job.max_salary, locale: 'zh-TW') %>
+</span>

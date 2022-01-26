@@ -1,0 +1,47 @@
+<%= form_with model: [:admin, @job ] do |form| %>
+  <div class="field mt-4">
+    <%= form.label :title, "職缺標題" %><br>
+    <%= form.text_field :title, required: true %>
+    <% @job.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div class="field mt-4">
+    <%= form.label :description, "工作內容" %>
+    <%= form.rich_text_area :description, required: true %>
+    <% @job.errors.full_messages_for(:description).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div class="field mt-4">
+    <%= form.label :requirements, "條件要求" %>
+    <%= form.rich_text_area :requirements, required: true %>
+    <% @job.errors.full_messages_for(:requirements).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div class="field mt-4">
+    <%= form.label :employee_benefits, "公司福利" %>
+    <%= form.rich_text_area :employee_benefits, required: true %>
+    <% @job.errors.full_messages_for(:employee_benefits).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div class="field mt-4">
+    <%= form.label :min_salary, "薪資範圍" %>
+    <div class="grid grid-cols-6 gap-4">
+      <%= form.number_field :min_salary, required: true, min: 0 %>
+      <%= form.number_field :max_salary, required: true, min: :min_salary %>
+    </div>
+    <% @job.errors.full_messages_for(:min_salary).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+    <% @job.errors.full_messages_for(:max_salary).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <div class="field mt-4">
+    <%= form.hidden_field :currency, value: 'TWD' %>
+  </div>
+  <%= form.submit class: "mt-4 btn-primary cursor-pointer" %>
+<% end %>
