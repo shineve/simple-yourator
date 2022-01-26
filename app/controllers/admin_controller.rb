@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
   def index
-    @company = Company.find(user_company_id)
+    @company = @user_company
     @jobs = @company.jobs
   end
 end

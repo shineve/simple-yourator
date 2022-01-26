@@ -10,7 +10,7 @@ class Admin::CompaniesController < ApplicationController
   def create
     @company = Company.new(company_params)
     if @company.save
-      format.html { redirect_to @company }
+      format.html { redirect_to root_path }
     else
       format.html { render :new, status: :unprocessable_entity }
     end
