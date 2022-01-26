@@ -1,1 +1,8 @@
-<h1>JOBS</h1>
+<section class="w-full h-full">
+  <h1>職缺列表</h1>
+  <div class="flex flex-col gap-4 mt-4">
+    <% @jobs.each do |job| %>
+      <%= render "jobs/card", job: job %>
+    <% end %>
+  </div>
+</section>
