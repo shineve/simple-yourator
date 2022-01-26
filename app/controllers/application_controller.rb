@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   private
 
   def user_company
-    @user_company = Company.all.sample(1)
+    @user_company = Company.find(Company.ids.first)
   end
 end
